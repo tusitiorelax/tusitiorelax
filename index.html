@@ -6,35 +6,59 @@
     <title>TU SITIO RELAX - Spa & Estética</title>
     <style>
         /* Estilos generales con paleta Zen */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; scroll-behavior: smooth; }
+        :root {
+            --verde-relax: #6b8e8e;
+            --verde-oscuro: #4f6d7a;
+            --fondo: #f4f7f6;
+            --texto: #333;
+        }
+
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: var(--fondo); color: var(--texto); scroll-behavior: smooth; }
         
-        header { background-color: #6b8e8e; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #557575; }
-        header h1 { margin: 0; font-size: 36px; letter-spacing: 4px; text-transform: uppercase; }
-        header p { margin: 10px 0 0; font-style: italic; font-size: 1.2rem; }
+        header { 
+            background: linear-gradient(rgba(107, 142, 142, 0.8), rgba(107, 142, 142, 0.8)), url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=1000') no-repeat center/cover; 
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--verde-oscuro); 
+        }
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; }
+        header p { margin: 10px 0 0; font-style: italic; font-size: 1.3rem; opacity: 0.9; }
 
-        nav { display: flex; justify-content: center; background: #fff; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { margin: 0 20px; text-decoration: none; color: #557575; font-weight: bold; transition: 0.3s; }
-        nav a:hover { color: #2c3e50; }
+        nav { display: flex; justify-content: center; background: #fff; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        nav a { margin: 0 20px; text-decoration: none; color: var(--verde-relax); font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        nav a:hover { color: var(--verde-oscuro); }
 
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
-        .section-title { text-align: center; color: #6b8e8e; border-bottom: 2px solid #6b8e8e; padding-bottom: 10px; margin-top: 40px; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
+        .section-title { text-align: center; color: var(--verde-relax); border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-top: 50px; text-transform: uppercase; letter-spacing: 2px; }
 
         /* Servicios y Aparatología */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; border-top: 5px solid #6b8e8e; }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: #4a4a4a; margin-bottom: 10px; }
-        .card p { font-size: 0.95rem; line-height: 1.5; color: #666; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); text-align: center; transition: 0.3s; border-bottom: 4px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--verde-relax); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 25px; }
+        .card h3 { color: #444; margin: 0 0 10px; font-weight: 600; }
+        .card p { font-size: 0.95rem; line-height: 1.6; color: #777; margin-bottom: 20px; }
         
-        .btn-turno { background-color: #6b8e8e; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
-        .btn-turno:hover { background-color: #4f6d7a; }
+        .btn-turno { background-color: var(--verde-relax); color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-turno:hover { background-color: var(--verde-oscuro); }
 
         /* Formulario de Turnos */
-        .form-container { background: #e9edec; padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center; }
-        input, select { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
-        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; border: none; border-radius: 30px; font-size: 1.1rem; cursor: pointer; font-weight: bold; }
+        .form-container { background: #fff; padding: 40px; border-radius: 20px; margin-top: 60px; text-align: center; box-shadow: 0 15px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        input, select { width: 100%; max-width: 400px; padding: 15px; margin: 10px 0; border: 1px solid #ddd; border-radius: 10px; font-size: 1rem; outline: none; }
+        input:focus { border-color: var(--verde-relax); }
+        .btn-whatsapp { background-color: #25d366; color: white; padding: 18px 40px; border: none; border-radius: 50px; font-size: 1.1rem; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 20px; }
+        .btn-whatsapp:hover { transform: scale(1.05); background-color: #1ebe57; }
 
-        footer { text-align: center; padding: 40px; background: #333; color: #ccc; margin-top: 50px; }
+        footer { text-align: center; padding: 60px 20px; background: #222; color: #aaa; margin-top: 80px; }
+        footer strong { color: white; display: block; margin-bottom: 10px; font-size: 1.2rem; }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav { flex-wrap: wrap; }
+            nav a { margin: 5px 10px; }
+        }
     </style>
 </head>
 <body>
@@ -45,7 +69,7 @@
 </header>
 
 <nav>
-    <a href="#servicios">Servicios</a>
+    <a href="#servicios">Tratamientos</a>
     <a href="#aparatologia">Aparatología</a>
     <a href="#turnos">Pedir Turno</a>
 </nav>
@@ -55,62 +79,80 @@
     <h2 id="servicios" class="section-title">Nuestros Tratamientos</h2>
     <div class="grid">
         <div class="card">
-            <h3>Masajes Estéticos</h3>
-            <p>Reducción, modelado y relajación profunda para renovar tu energía.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Masajes Estéticos')">Elegir</button>
+            <img src="https://images.unsplash.com/photo-1600334182023-7aa426c69f2f?auto=format&fit=crop&q=80&w=500" alt="Masajes">
+            <div class="card-content">
+                <h3>Masajes Estéticos</h3>
+                <p>Reducción, modelado y relajación profunda para renovar tu energía diaria.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Masajes Estéticos')">QUIERO ESTE</button>
+            </div>
         </div>
         <div class="card">
-            <h3>Maderoterapia</h3>
-            <p>Técnica milenaria para tonificar el cuerpo y reducir la celulitis.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Maderoterapia')">Elegir</button>
+            <img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&q=80&w=500" alt="Maderoterapia">
+            <div class="card-content">
+                <h3>Maderoterapia</h3>
+                <p>Técnica milenaria con elementos de madera para tonificar y reducir la celulitis.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Maderoterapia')">QUIERO ESTE</button>
+            </div>
         </div>
         <div class="card">
-            <h3>Vacumterapia</h3>
-            <p>Tratamiento no invasivo para drenaje linfático y mejora de la piel.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Vacumterapia')">Elegir</button>
+            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&q=80&w=500" alt="Vacumterapia">
+            <div class="card-content">
+                <h3>Vacumterapia</h3>
+                <p>Drenaje linfático profundo que mejora la elasticidad y firmeza de tu piel.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Vacumterapia')">QUIERO ESTE</button>
+            </div>
         </div>
     </div>
 
-    <h2 id="aparatologia" class="section-title">Alta Tecnología Corporal</h2>
+    <h2 id="aparatologia" class="section-title">Tecnología de Vanguardia</h2>
     <div class="grid">
         <div class="card">
-            <h3>TESLAGEN</h3>
-            <p>Estimulación magnética de alta intensidad para tonificación muscular extrema.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Teslagen')">Elegir</button>
+            <div class="card-content">
+                <h3 style="color: var(--verde-relax)">TESLAGEN</h3>
+                <p>Estimulación magnética de alta intensidad para tonificación muscular sin esfuerzo.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Teslagen')">CONSULTAR</button>
+            </div>
         </div>
         <div class="card">
-            <h3>TEKMEDICAL</h3>
-            <p>Equipos profesionales de electroestimulación para resultados rápidos y seguros.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Tekmedical')">Elegir</button>
+            <div class="card-content">
+                <h3 style="color: var(--verde-relax)">TEKMEDICAL</h3>
+                <p>Electroestimulación profesional. Resultados rápidos, seguros y visibles.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Tekmedical')">CONSULTAR</button>
+            </div>
         </div>
         <div class="card">
-            <h3>BODY UP</h3>
-            <p>Levantamiento y reafirmación de tejidos con tecnología de punta.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Body Up')">Elegir</button>
+            <div class="card-content">
+                <h3 style="color: var(--verde-relax)">BODY UP</h3>
+                <p>El sistema más efectivo para el levantamiento y reafirmación de tejidos.</p>
+                <button class="btn-turno" onclick="seleccionarServicio('Body Up')">CONSULTAR</button>
+            </div>
         </div>
     </div>
 
     <div id="turnos" class="form-container">
-        <h2>Reserva tu Turno</h2>
-        <p>Seleccioná un servicio arriba y completá tus datos:</p>
+        <h2 style="color: var(--verde-relax)">Reserva tu Turno</h2>
+        <p>Elegí tu tratamiento arriba y completá tus datos para agendar por WhatsApp:</p>
         <form id="appointmentForm">
             <input type="text" id="servicio-input" placeholder="Servicio elegido" readonly>
-            <input type="text" id="nombre-cliente" placeholder="Tu Nombre" required>
+            <br>
+            <input type="text" id="nombre-cliente" placeholder="Tu Nombre Completo" required>
+            <br>
             <input type="date" id="fecha-cliente" required>
-            <br><br>
-            <button type="submit" class="btn-whatsapp">Enviar Pedido por WhatsApp</button>
+            <br>
+            <button type="submit" class="btn-whatsapp">SOLICITAR TURNO POR WHATSAPP</button>
         </form>
     </div>
 
 </div>
 
 <footer>
-    <p>TU SITIO RELAX - Tafí Viejo, Tucumán</p>
-    <p>Balcarce 286 Altos</p>
+    <strong>TU SITIO RELAX</strong>
+    <p>Balcarce 286 Altos, Tafí Viejo, Tucumán</p>
+    <p>© 2026 Bienestar & Estética Integral</p>
 </footer>
 
 <script>
-    const MI_TELEFONO = "5493814644322";
+    const MI_TELEFONO = "543814644322"; // El número que me pasaste
 
     function seleccionarServicio(nombre) {
         document.getElementById('servicio-input').value = nombre;
@@ -128,7 +170,7 @@
             return; 
         }
 
-        const mensaje = `Hola *TU SITIO RELAX*, quiero un turno:%0A*Servicio:* ${servicio}%0A*Nombre:* ${nombre}%0A*Fecha:* ${fecha}`;
+        const mensaje = `Hola *TU SITIO RELAX*, quisiera consultar por un turno:%0A*Servicio:* ${servicio}%0A*Nombre:* ${nombre}%0A*Fecha:* ${fecha}`;
         window.open(`https://wa.me/${MI_TELEFONO}?text=${mensaje}`, '_blank');
     });
 </script>
