@@ -4,37 +4,147 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TU SITIO RELAX - Spa & Estética</title>
+    
+    <meta property="og:title" content="TU SITIO RELAX - Bienestar Integral" />
+    <meta property="og:description" content="Salud, Estética & Bienestar en Tafí Viejo. Masajes, Maderoterapia y Alta Tecnología." />
+    <meta property="og:type" content="website" />
+
     <style>
         /* Estilos generales con paleta Zen */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f7f6; color: #333; scroll-behavior: smooth; }
-        
-        header { background-color: #6b8e8e; color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid #557575; }
-        header h1 { margin: 0; font-size: 36px; letter-spacing: 4px; text-transform: uppercase; }
-        header p { margin: 10px 0 0; font-style: italic; font-size: 1.2rem; }
+        :root {
+            --principal: #6b8e8e;
+            --secundario: #557575;
+            --fondo: #f4f7f6;
+            --texto: #333;
+        }
 
-        nav { display: flex; justify-content: center; background: #fff; padding: 15px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        nav a { margin: 0 20px; text-decoration: none; color: #557575; font-weight: bold; transition: 0.3s; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background-color: var(--fondo); 
+            color: var(--texto); 
+            scroll-behavior: smooth; 
+        }
+        
+        header { 
+            background: linear-gradient(rgba(107, 142, 142, 0.8), rgba(107, 142, 142, 0.9)), 
+                        url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&q=80&w=1000') no-repeat center/cover;
+            color: white; 
+            padding: 80px 20px; 
+            text-align: center; 
+            border-bottom: 5px solid var(--secundario); 
+        }
+
+        header h1 { margin: 0; font-size: 3rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; }
+        header p { margin: 15px 0 0; font-style: italic; font-size: 1.3rem; opacity: 0.9; }
+
+        nav { 
+            display: flex; 
+            justify-content: center; 
+            background: #fff; 
+            padding: 15px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: var(--secundario); 
+            font-weight: bold; 
+            transition: 0.3s; 
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
         nav a:hover { color: #2c3e50; }
 
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
-        .section-title { text-align: center; color: #6b8e8e; border-bottom: 2px solid #6b8e8e; padding-bottom: 10px; margin-top: 40px; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
+        .section-title { 
+            text-align: center; 
+            color: var(--principal); 
+            border-bottom: 2px solid var(--principal); 
+            padding-bottom: 15px; 
+            margin-top: 50px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
 
         /* Servicios y Aparatología */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s; border-top: 5px solid #6b8e8e; }
-        .card:hover { transform: translateY(-10px); }
-        .card h3 { color: #4a4a4a; margin-bottom: 10px; }
-        .card p { font-size: 0.95rem; line-height: 1.5; color: #666; }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03); 
+            text-align: center; 
+            transition: all 0.3s ease; 
+            border-top: 6px solid var(--principal); 
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .card h3 { color: #4a4a4a; margin-bottom: 15px; font-size: 1.4rem; }
+        .card p { font-size: 1rem; line-height: 1.6; color: #777; margin-bottom: 20px; }
         
-        .btn-turno { background-color: #6b8e8e; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; margin-top: 15px; font-weight: bold; }
-        .btn-turno:hover { background-color: #4f6d7a; }
+        .btn-turno { 
+            background-color: var(--principal); 
+            color: white; 
+            border: none; 
+            padding: 12px 25px; 
+            border-radius: 25px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .btn-turno:hover { background-color: var(--secundario); transform: scale(1.05); }
 
         /* Formulario de Turnos */
-        .form-container { background: #e9edec; padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center; }
-        input, select { width: 90%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; }
-        .btn-whatsapp { background-color: #25d366; color: white; padding: 15px 30px; border: none; border-radius: 30px; font-size: 1.1rem; cursor: pointer; font-weight: bold; }
+        .form-container { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 20px; 
+            margin-top: 60px; 
+            text-align: center; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+        .form-container h2 { color: var(--secundario); margin-bottom: 10px; }
+        input, select { 
+            width: 100%; 
+            max-width: 400px; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border: 1px solid #ddd; 
+            border-radius: 12px; 
+            font-size: 1rem;
+            outline: none;
+        }
+        input:focus { border-color: var(--principal); box-shadow: 0 0 5px rgba(107,142,142,0.3); }
 
-        footer { text-align: center; padding: 40px; background: #333; color: #ccc; margin-top: 50px; }
+        .btn-whatsapp { 
+            background-color: #25d366; 
+            color: white; 
+            padding: 18px 40px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.3s;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp:hover { transform: scale(1.05); background-color: #1ebe57; }
+
+        footer { text-align: center; padding: 60px 20px; background: #222; color: #999; margin-top: 80px; }
+        footer p { margin: 5px 0; }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            nav a { margin: 0 8px; font-size: 0.8rem; }
+        }
     </style>
 </head>
 <body>
@@ -45,8 +155,8 @@
 </header>
 
 <nav>
-    <a href="#servicios">Servicios</a>
-    <a href="#aparatologia">Aparatología</a>
+    <a href="#servicios">Tratamientos</a>
+    <a href="#aparatologia">Tecnología</a>
     <a href="#turnos">Pedir Turno</a>
 </nav>
 
@@ -56,57 +166,60 @@
     <div class="grid">
         <div class="card">
             <h3>Masajes Estéticos</h3>
-            <p>Reducción, modelado y relajación profunda para renovar tu energía.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Masajes Estéticos')">Elegir</button>
+            <p>Reducción, modelado y relajación profunda para renovar tu energía y sentirte mejor.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Masajes Estéticos')">Seleccionar</button>
         </div>
         <div class="card">
             <h3>Maderoterapia</h3>
-            <p>Técnica milenaria para tonificar el cuerpo y reducir la celulitis.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Maderoterapia')">Elegir</button>
+            <p>Técnica milenaria con elementos de madera para tonificar y combatir la celulitis.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Maderoterapia')">Seleccionar</button>
         </div>
         <div class="card">
             <h3>Vacumterapia</h3>
-            <p>Tratamiento no invasivo para drenaje linfático y mejora de la piel.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Vacumterapia')">Elegir</button>
+            <p>Drenaje linfático profundo que mejora la elasticidad de la piel y elimina toxinas.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Vacumterapia')">Seleccionar</button>
         </div>
     </div>
 
-    <h2 id="aparatologia" class="section-title">Alta Tecnología Corporal</h2>
+    <h2 id="aparatologia" class="section-title">Aparatología de Avanzada</h2>
     <div class="grid">
         <div class="card">
             <h3>TESLAGEN</h3>
-            <p>Estimulación magnética de alta intensidad para tonificación muscular extrema.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Teslagen')">Elegir</button>
+            <p>Musculación estética: 20.000 abdominales en 30 minutos mediante ondas electromagnéticas.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Teslagen')">Seleccionar</button>
         </div>
         <div class="card">
             <h3>TEKMEDICAL</h3>
-            <p>Equipos profesionales de electroestimulación para resultados rápidos y seguros.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Tekmedical')">Elegir</button>
+            <p>Electroestimulación de grado médico para fortalecer músculos y mejorar la circulación.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Tekmedical')">Seleccionar</button>
         </div>
         <div class="card">
             <h3>BODY UP</h3>
-            <p>Levantamiento y reafirmación de tejidos con tecnología de punta.</p>
-            <button class="btn-turno" onclick="seleccionarServicio('Body Up')">Elegir</button>
+            <p>Efecto lifting corporal inmediato. Ideal para levantamiento de glúteos y firmeza.</p>
+            <button class="btn-turno" onclick="seleccionarServicio('Body Up')">Seleccionar</button>
         </div>
     </div>
 
     <div id="turnos" class="form-container">
-        <h2>Reserva tu Turno</h2>
-        <p>Seleccioná un servicio arriba y completá tus datos:</p>
+        <h2>Reserva tu Experiencia</h2>
+        <p>Elegí un servicio arriba y completá tus datos para coordinar por WhatsApp.</p>
         <form id="appointmentForm">
-            <input type="text" id="servicio-input" placeholder="Servicio elegido" readonly>
-            <input type="text" id="nombre-cliente" placeholder="Tu Nombre" required>
+            <input type="text" id="servicio-input" placeholder="Servicio no seleccionado" readonly style="background-color: #f9f9f9; color: var(--principal); font-weight: bold;">
+            <br>
+            <input type="text" id="nombre-cliente" placeholder="Tu Nombre y Apellido" required>
+            <br>
             <input type="date" id="fecha-cliente" required>
-            <br><br>
-            <button type="submit" class="btn-whatsapp">Enviar Pedido por WhatsApp</button>
+            <br>
+            <button type="submit" class="btn-whatsapp">📅 Agendar por WhatsApp</button>
         </form>
     </div>
 
 </div>
 
 <footer>
-    <p>TU SITIO RELAX - Tafí Viejo, Tucumán</p>
-    <p>Balcarce 286 Altos</p>
+    <p><strong>TU SITIO RELAX</strong></p>
+    <p>Balcarce 286 Altos - Tafí Viejo, Tucumán</p>
+    <p style="font-size: 0.8rem; margin-top: 20px;">© 2026 Bienestar & Estética Integral</p>
 </footer>
 
 <script>
@@ -114,6 +227,8 @@
 
     function seleccionarServicio(nombre) {
         document.getElementById('servicio-input').value = nombre;
+        // Pequeño efecto visual en el input
+        document.getElementById('servicio-input').style.border = "2px solid #6b8e8e";
         document.getElementById('turnos').scrollIntoView({behavior: 'smooth'});
     }
 
@@ -124,11 +239,14 @@
         const fecha = document.getElementById('fecha-cliente').value;
         
         if(!servicio) { 
-            alert("Por favor, selecciona un servicio arriba primero."); 
+            alert("Por favor, seleccioná primero un tratamiento de la lista de arriba."); 
             return; 
         }
 
-        const mensaje = `Hola *TU SITIO RELAX*, quiero un turno:%0A*Servicio:* ${servicio}%0A*Nombre:* ${nombre}%0A*Fecha:* ${fecha}`;
+        // Formatear mensaje para WhatsApp
+        const mensaje = `Hola *TU SITIO RELAX*, deseo consultar por un turno:%0A%0A✨ *Servicio:* ${servicio}%0A👤 *Cliente:* ${nombre}%0A📅 *Fecha sugerida:* ${fecha}%0A%0AMuchas gracias.`;
+        
+        // Abrir WhatsApp en pestaña nueva
         window.open(`https://wa.me/${MI_TELEFONO}?text=${mensaje}`, '_blank');
     });
 </script>
